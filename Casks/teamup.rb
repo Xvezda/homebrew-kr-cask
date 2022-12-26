@@ -14,5 +14,6 @@ cask "teamup" do
     regex(/TeamUPSetup(\d+(?:\.\d+)*)\.dmg/i)
   end
 
+  container type: :dmg
   app "TeamUP.app"
 end
