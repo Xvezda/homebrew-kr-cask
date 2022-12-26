@@ -16,4 +16,10 @@ cask "teamup" do
 
   container type: :dmg
   app "TeamUP.app"
+
+  zap trash: [
+    "~/Library/Preferences/com.estsoft.TeamUP.plist",
+    "~/Library/Preferences/com.estsoft.mac.teamup.plist",
+    "~/Library/Saved Application State/com.estsoft.mac.teamup.savedState",
+  ]
 end
