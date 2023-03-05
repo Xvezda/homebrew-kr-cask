@@ -1,0 +1,40 @@
+name: Update casks
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 0 * * *'  # every day
+  workflow_dispatch:
+  
+permissions:
+  contents: read
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Update casks (naver fonts)
+      run: ruby scripts/update-naver-fonts.rb
+    - name: Check diffs
+      id: check-diff
+      run: |
+        git diff --exit-code Casks || echo "has-diff=true" >> $GITHUB_OUTPUT
+    - name: Update repository
+      if: ${{ steps.check-diff.outputs.has-diff == 'true' }}
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add Casks
+        git commit -m 'Update casks'
+        git push
