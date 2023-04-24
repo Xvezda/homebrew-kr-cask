@@ -1,8 +1,9 @@
 cask "teamup" do
   version "4.0.6.29"
-  sha256 "674fe14d9973bae6e5b115f42cfa558f2fd8e69ed0514c51d1f5bbcc90cd8b7d"
+  sha256 :no_check
 
   url "https://advert.estsoft.com/?event=201702222151584",
+    verified: "tmup.com/",
     user_agent: :fake
   name "TeamUP"
   homepage "https://tmup.com/main/download"
