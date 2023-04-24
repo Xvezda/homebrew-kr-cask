@@ -1,10 +1,10 @@
 cask "teamup" do
-  version "4.0.6.29"
+  version "4.1.2.3"
   sha256 :no_check
 
   url "https://advert.estsoft.com/?event=201702222151584",
-    verified: "advert.estsoft.com/",
-    user_agent: :fake
+      verified:   "advert.estsoft.com/",
+      user_agent: :fake
   name "TeamUP"
   homepage "https://tmup.com/main/download"
 
@@ -15,6 +15,7 @@ cask "teamup" do
   end
 
   container type: :dmg
+
   app "TeamUP.app"
 
   zap trash: [
