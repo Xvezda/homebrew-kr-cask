@@ -3,7 +3,7 @@ cask "teamup" do
   sha256 :no_check
 
   url "https://advert.estsoft.com/?event=201702222151584",
-    verified: "tmup.com/",
+    verified: "advert.estsoft.com/",
     user_agent: :fake
   name "TeamUP"
   homepage "https://tmup.com/main/download"
