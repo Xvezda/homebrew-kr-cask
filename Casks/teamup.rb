@@ -1,5 +1,5 @@
 cask "teamup" do
-  version "4.1.2.3"
+  version "4.1.7.1"
   sha256 :no_check
 
   url "https://advert.estsoft.com/?event=201702222151584",
